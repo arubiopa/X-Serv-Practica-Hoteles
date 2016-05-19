@@ -25,4 +25,4 @@ def inicio(request):
     respuesta =""
     for elem in lista:
         respuesta += str(elem) +"\n"
-    return HttpResponse("parseado completo\n" + respuesta)
+    return HttpResponse(respuesta)
