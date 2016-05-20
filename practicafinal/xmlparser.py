@@ -17,10 +17,11 @@ class myContentHandler(ContentHandler):
         self.lista = []
         self.diccionario['url'] =[]
         self.cont = 1
+        self.myattr =""
 
 
     def startElement (self, name, attrs):
-        if name == 'tittle':
+        if name == 'name':
             self.inItem = True
             self.inContent = True
         elif name == 'address':
@@ -38,12 +39,17 @@ class myContentHandler(ContentHandler):
         elif name == "url" :
             self.inItem = True
             self.inContent = True
+        elif name == "item" and attrs["name"]== "Categoria":
+            self.myattr ="Categoria"
+            self.inItem = True
+            self.inContent = True
         elif name == "item" and attrs["name"]== "SubCategoria":
+            self.myattr ="SubCategoria"
             self.inItem = True
             self.inContent = True
 
     def endElement (self, name):
-        if name == 'tittle':
+        if name == "name":
             self.diccionario[name] = self.theContent
             self.inItem = False
             self.inContent = False
@@ -64,7 +70,12 @@ class myContentHandler(ContentHandler):
             self.inItem = False
             self.inContent = False
         elif name == "item" and self.theContent:
-            self.diccionario["star"] = self.theContent
+            if self.myattr == "Categoria":
+                self.diccionario["cat"] = self.theContent
+                self.myattr =""
+            elif self.myattr == "SubCategoria":
+                self.diccionario["subcat"] = self.theContent
+                self.myattr =""
             self.inItem = False
             self.inContent = False
         elif name == "url":
@@ -74,13 +85,14 @@ class myContentHandler(ContentHandler):
             self.lista.append(self.diccionario)
             self.diccionario = {}
             self.diccionario['url'] =[]
+
         self.inContent = False
         self.theContent = ""
 
     def characters (self, content):
         if self.inContent:
             self.theContent = content
-            print content
+            #print content
 
     def veolista(self):
         return self.lista
