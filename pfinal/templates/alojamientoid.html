@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Dreamy - A Ginger Ninja! template</title>
+<link rel="stylesheet" href="/template/style.css" type="text/css" media="screen" />
+<style type="text/css">
+	{{css}}
+</style>
+</head>
+
+<body>
+{{estado}}
+<div id="wrapper">
+
+	<div id="header">
+		<h1>* Duerme en Madrid *</h1>
+	</div>
+
+	<div id="menu">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/alojamientos">Alojamientos</a></li>
+			<li><a href="/about">About</a></li>
+		</ul>
+	</div>
+
+	<div id="sidebar">
+		{{log|safe}}
+		{{infoUsuarios|safe}}
+	</div>
+
+	<div id="content">
+
+		<h1> {{nombre}} </h1></br></br></br></br></br></br>
+		{{botones|safe}}</br></br>
+		{{hoteles|safe}}</br></br>
+		{{infoIdioma|safe}}
+		{{form|safe}}
+		</br></br>
+		<div class="comments">
+		<a>{{comentarios|safe}}</a>
+		</div>
+		</br></br>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div id="footer-valid">
+			<h4>Esta aplicación utiliza datos del portal de datos abiertos de la ciudad de Madrid</h4>
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>
